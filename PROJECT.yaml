@@ -1,0 +1,20 @@
+# PROJECT.yaml, drafted by `sdlc init`. Correct anything that is wrong, then save.
+#
+# Inferred from the repository at 0335247c1eba. The platform infers these again
+# on every resolve; add a value under `declared:` only to override one.
+#   base_branch: main   <- git:refs/heads/main
+#   databases: (none found)
+#   frameworks: (none found)
+#   languages: (none found)   ! languages: no evidence found
+#   repository_url: https://github.com/yogii30/sdlc-platform-demo   <- git:remote.origin.url
+#   source_paths: (none found)   ! source_paths: no top-level src, app, lib or packages directory
+#   test_paths: (none found)   ! test_paths: no top-level tests, test, __tests__ or spec directory
+api_version: platform/v1
+kind: project
+project: sdelc-demo-project
+owner:
+  team: yogesh
+lifecycle: greenfield
+source_of_truth:
+  jira:
+    project_key: SDLC
