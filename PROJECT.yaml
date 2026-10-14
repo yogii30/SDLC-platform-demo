@@ -11,7 +11,7 @@
 #   test_paths: (none found)   ! test_paths: no top-level tests, test, __tests__ or spec directory
 api_version: platform/v1
 kind: project
-project: sdelc-demo-project
+project: sdlc-platform-demo
 owner:
   team: yogesh
 lifecycle: greenfield
