@@ -1,0 +1,126 @@
+:root {
+  --login-space-1: 0.5rem;
+  --login-space-2: 1rem;
+  --login-space-3: 1.5rem;
+  --login-space-4: 2rem;
+  --login-radius: 0.5rem;
+  --login-bg: #f3f4f6;
+  --login-surface: #ffffff;
+  --login-text: #111827;
+  --login-muted: #6b7280;
+  --login-border: #d1d5db;
+  --login-accent: #2563eb;
+  --login-accent-hover: #1d4ed8;
+  --login-focus: rgba(37, 99, 235, 0.35);
+
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--login-text);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--login-bg);
+}
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--login-space-2);
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--login-space-3);
+  width: 100%;
+  max-width: 400px;
+  padding: var(--login-space-4);
+  background: var(--login-surface);
+  border-radius: var(--login-radius);
+  box-shadow: 0 10px 25px rgba(17, 24, 39, 0.08);
+}
+
+.login-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.login-subtitle {
+  margin: calc(-1 * var(--login-space-2)) 0 0;
+  color: var(--login-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--login-space-1);
+}
+
+.login-field label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 0.75rem var(--login-space-2);
+  font: inherit;
+  color: inherit;
+  background: var(--login-surface);
+  border: 1px solid var(--login-border);
+  border-radius: var(--login-radius);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.login-field input:focus {
+  outline: none;
+  border-color: var(--login-accent);
+  box-shadow: 0 0 0 3px var(--login-focus);
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem var(--login-space-2);
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--login-accent);
+  border: none;
+  border-radius: var(--login-radius);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.login-button:hover {
+  background: var(--login-accent-hover);
+}
+
+.login-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--login-focus);
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    align-items: flex-start;
+    padding: var(--login-space-2);
+  }
+
+  .login-card {
+    max-width: none;
+    padding: var(--login-space-3) var(--login-space-2);
+    box-shadow: none;
+  }
+}
