@@ -73,12 +73,15 @@ describe('formatAmount: never a float (AC3)', () => {
 
   it('hands Intl.NumberFormat a decimal string, never a number', () => {
     const received: unknown[] = [];
-    vi.spyOn(Intl.NumberFormat.prototype, 'format', 'get').mockImplementation(
-      () => (value: unknown) => {
-        received.push(value);
-        return 'formatted';
-      },
-    );
+    // Intl.NumberFormat.prototype.format is an accessor, but its type is a method, which
+    // vi.spyOn refuses to treat as a getter; view the prototype as a plain property.
+    const prototype = Intl.NumberFormat.prototype as unknown as {
+      readonly format: unknown;
+    };
+    vi.spyOn(prototype, 'format', 'get').mockImplementation(() => (value: unknown) => {
+      received.push(value);
+      return 'formatted';
+    });
 
     expect(formatAmount(1234, 'USD')).toBe('formatted');
     expect(formatAmount(-5, 'USD')).toBe('formatted');
